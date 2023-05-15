@@ -28,7 +28,7 @@ ARCH_FILTER += linux-x86_64
 # Since this file (afterinit.Makefile) is copied into
 # the module directory at build-time, these paths have to be relative
 # to that path
-APP := afterinitApp
+APP := .
 APPDB := $(APP)/Db
 APPSRC := $(APP)/src
 
@@ -38,6 +38,9 @@ APPSRC := $(APP)/src
 #     SOURCES += $(APPSRC)/library.c
 #     HEADERS += $(APPSRC)/library.h
 #     USR_INCLUDES += -I$(where_am_I)$(APPSRC)
+
+SOURCES += $(APPSRC)/afterInit.c
+DBDS += $(APPSRC)/afterInit.dbd
 
 TEMPLATES += $(wildcard $(APPDB)/*.db)
 TEMPLATES += $(wildcard $(APPDB)/*.proto)
